@@ -17,11 +17,13 @@ sudo apt install -y docker.io nginx git
 sudo systemctl start docker
 sudo systemctl enable docker
 
-# Clone or pull repo
+# Clone or pull repo with force option
 if [ -d "$APP_DIR" ]; then
     echo "Updating existing repo in $APP_DIR..."
     cd "$APP_DIR"
-    git pull origin main
+    # Force reset to match remote, overwriting local changes
+    git fetch origin
+    git reset --hard origin/main
 else
     echo "Cloning repo to $APP_DIR..."
     git clone "$GIT_REPO" "$APP_DIR"
