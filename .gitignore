@@ -1,0 +1,41 @@
+# Python bytecode and caches
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Virtual environments (if you use locally)
+venv/
+env/
+*.venv
+
+# Dependency lock files
+Pipfile.lock
+poetry.lock
+
+# Logs and runtime files
+*.log
+nohup.out
+
+# Local dev configs and secrets
+.env
+*.local
+*.secret
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editor temp files
+*.swp
+*~
+.#*
+
+# Docker-specific (optional, keep Dockerfile in repo)
+# Uncomment if you don’t want these tracked
+# Dockerfile
+# .dockerignore
+
+# Project-specific ignores
+*.csv  # From MEXC Go testing, remove if you want CSVs in Git
