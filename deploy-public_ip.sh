@@ -69,7 +69,7 @@ server {
 EOF"
 
 # Enable Nginx config
-sudo ln -sf "/etc/nginx/sites-available/$APP_NAME" /etc/nginx/sites-enabled/"
+sudo ln -sf "/etc/nginx/sites-available/$APP_NAME" /etc/nginx/sites-enabled/
 sudo nginx -t && sudo systemctl restart nginx
 echo "Nginx configured and restarted."
 
