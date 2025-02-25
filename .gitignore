@@ -23,19 +23,10 @@ nohup.out
 *.local
 *.secret
 
-# OS junk
-.DS_Store
-Thumbs.db
-
 # Editor temp files
 *.swp
 *~
 .#*
 
-# Docker-specific (optional, keep Dockerfile in repo)
-# Uncomment if you don’t want these tracked
-# Dockerfile
-# .dockerignore
-
 # Project-specific ignores
-*.csv  # From MEXC Go testing, remove if you want CSVs in Git
+*.csv

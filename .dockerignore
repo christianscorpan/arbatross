@@ -1,7 +1,32 @@
-__pycache__
+# Python bytecode and caches
+__pycache__/
 *.pyc
 *.pyo
 *.pyd
 .Python
-env/
+
+# Virtual environments (if you use locally)
 venv/
+env/
+*.venv
+
+# Dependency lock files
+Pipfile.lock
+poetry.lock
+
+# Logs and runtime files
+*.log
+nohup.out
+
+# Local dev configs and secrets
+.env
+*.local
+*.secret
+
+# Editor temp files
+*.swp
+*~
+.#*
+
+# Project-specific ignores
+*.csv
