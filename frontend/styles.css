@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #f4f4f4;
+}
+#controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+#asset-search, #exchange-select {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex: 1;
+}
+.diff-eye-display, .voltic-eye-display {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+.diff-eye-display p, .voltic-eye-display p {
+    margin: 10px 0;
+    font-size: 18px;
+}
+.price {
+    font-weight: bold;
+    color: #333;
+}
+.diff-positive { color: #28a745; }
+.diff-negative { color: #dc3545; }
+#chart-container {
+    margin-top: 20px;
+    height: 250px;
+    width: 100%;
+    position: relative;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+#price-diff-chart {
+    width: 100%;
+    height: 100%;
+}
+#status {
+    margin-top: 10px;
+    font-style: italic;
+    color: #666;
+}
+.voltic-eye-display h3 {
+    margin-top: 0;
+}
+#voltic-list {
+    list-style: none;
+    padding: 0;
+}
+#voltic-list li {
+    margin: 5px 0;
+}
+
+.clickable-pair {
+    color: #0066cc;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+.clickable-pair:hover {
+    background-color: #e6f2ff;
+    text-decoration: underline;
+}

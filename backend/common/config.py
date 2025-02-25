@@ -1,7 +1,7 @@
 import logging
-from exchanges.binance import CONFIG as BINANCE_CONFIG
-from exchanges.kraken import CONFIG as KRAKEN_CONFIG
-from exchanges.mexc import CONFIG as MEXC_CONFIG
+from .exchanges.binance import CONFIG as BINANCE_CONFIG
+from .exchanges.kraken import CONFIG as KRAKEN_CONFIG
+from .exchanges.mexc import CONFIG as MEXC_CONFIG
 
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)

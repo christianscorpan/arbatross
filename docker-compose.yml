@@ -1,0 +1,35 @@
+version: "3.8"
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "80:80"  # Nginx on 80, not 8000
+    volumes:
+      - ./frontend:/usr/share/nginx/html  # Match Nginx root
+    depends_on:
+      - diff_eye
+      - voltic_eye  # Frontend needs backend services
+
+  diff_eye:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+      args:
+        - SERVICE=diff_eye
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app/backend
+
+  voltic_eye:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+      args:
+        - SERVICE=voltic_eye
+    ports:
+      - "8001:8001"
+    volumes:
+      - ./backend:/app/backend

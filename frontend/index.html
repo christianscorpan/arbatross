@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Asset Price & Volatility Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div id="diff-eye-widget"></div>
+    <div id="voltic-eye-widget"></div>
+    <script src="/widgets/diff_eye.js"></script>
+    <script src="/widgets/voltic_eye.js"></script>
+    <script>
+        const host = window.location.hostname || "localhost";
+        const protocol = window.location.protocol === "https:" ? "wss:" : "ws:";
+        initDiffEyeWidget(protocol, host);
+        initVolticEyeWidget(protocol, host);
+    </script>
+</body>
+</html>

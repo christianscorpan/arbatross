@@ -1,0 +1,19 @@
+FROM python:3.9-slim
+WORKDIR /app
+
+# Copy shared requirements
+COPY ./backend/common/requirements.txt ./requirements.txt
+RUN pip install -r requirements.txt
+
+# Copy entire backend
+COPY ./backend /app/backend
+
+# Define SERVICE arg without default
+ARG SERVICE
+ENV SERVICE=${SERVICE}
+
+# Debug step
+RUN echo "SERVICE is set to: $SERVICE"
+
+# Shell form CMD
+CMD python -m backend.$SERVICE.main
