@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: voltic-eye
+  namespace: arbatross
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: voltic-eye
+  template:
+    metadata:
+      labels:
+        app: voltic-eye
+    spec:
+      containers:
+      - name: voltic-eye
+        image: arbatross-backend:latest  # Replace ${REGISTRY} with your registry
+        imagePullPolicy: Never
+        env:
+        - name: SERVICE
+          value: "voltic_eye"
+        # Explicitly set the command to run the service
+        command: ["sh", "-c", "python -m backend.${SERVICE}.main"]
+        ports:
+        - containerPort: 8001
+        # No volume mounts needed - use the code built into the image
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 500m
+            memory: 512Mi
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8001
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 8001
+          initialDelaySeconds: 5
+          periodSeconds: 5
+      # No volumes needed anymore
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: voltic-eye
+  namespace: arbatross
+spec:
+  selector:
+    app: voltic-eye
+  ports:
+  - port: 8001
+    targetPort: 8001
+  type: ClusterIP

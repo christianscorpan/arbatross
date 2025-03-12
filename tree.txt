@@ -1,0 +1,49 @@
+.
+├── .dockerignore
+├── .gitignore
+├── Dockerfile.backend
+├── Dockerfile.frontend
+├── README.md
+├── backend
+│   ├── common
+│   │   ├── config.py
+│   │   ├── exchanges
+│   │   │   ├── __init__.py
+│   │   │   ├── binance.py
+│   │   │   ├── kraken.py
+│   │   │   └── mexc.py
+│   │   └── requirements.txt
+│   ├── diff_eye
+│   │   └── main.py
+│   └── voltic_eye
+│       └── main.py
+├── docker-compose.yml
+├── frontend
+│   ├── index.html
+│   ├── nginx.conf
+│   ├── styles.css
+│   └── widgets
+│       ├── common.js
+│       ├── diff_eye.js
+│       └── voltic_eye.js
+├── k8s
+│   ├── README.md
+│   ├── base
+│   │   ├── 00-namespace.yaml
+│   │   ├── 01-configmap.yaml
+│   │   ├── 02-diff-eye-deployment.yaml
+│   │   ├── 03-voltic-eye-deployment.yaml
+│   │   ├── 04-frontend-deployment.yaml
+│   │   ├── 05-ingress.yaml
+│   │   └── kustomization.yaml
+│   ├── minikube-test-production.sh
+│   ├── minikube-test.sh
+│   └── overlays
+│       ├── dev
+│       │   └── kustomization.yaml
+│       └── production
+│           ├── kustomization.yaml
+│           └── resource-limits.yaml
+└── tree.txt
+
+13 directories, 34 files
